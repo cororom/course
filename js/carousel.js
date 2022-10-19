@@ -1,9 +1,11 @@
 (function () {
   const myCarousel = document.querySelector("#myCarousel");
-  const mainCarousel = new bootstrap.Carousel(myCarousel, {
-    interval: 2000,
-    ride: "carousel",
-  });
+  if (myCarousel) {
+    const mainCarousel = new bootstrap.Carousel(myCarousel, {
+      interval: 2000,
+      ride: "carousel",
+    });
+  }
 
   const slideLeftBtn = document.querySelectorAll(".custom-control-prev");
   const slideRightBtn = document.querySelectorAll(".custom-control-next");

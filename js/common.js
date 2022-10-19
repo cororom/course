@@ -32,7 +32,8 @@ const handleNavContent = (menu = "home") => {
       element.classList.add("active");
     }
   });
-  navTabContent.scrollTop = 0;
+  //navTabContent.scrollTop = 0;
+  //window.scrollTo(0, 0);
 };
 
 const initMenuColor = (target, list) => {
@@ -92,4 +93,53 @@ const postData = async (url = "", data = {}) => {
     body: JSON.stringify(data), // body의 데이터 유형은 반드시 "Content-Type" 헤더와 일치해야 함
   });
   return response.json(); // JSON 응답을 네이티브 JavaScript 객체로 파싱
+};
+
+const getPage = async (url = "") => {
+  const response = await fetch(url, {
+    method: "GET",
+    mode: "no-cors",
+    cache: "no-cache",
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    redirect: "follow",
+    referrerPolicy: "no-referrer",
+  });
+  return response.text();
+};
+
+const isNodeScript = (node) => {
+  return node.tagName === "SCRIPT";
+};
+
+const cloneNodeScript = (node) => {
+  const script = document.createElement("script");
+  script.text = node.innerHTML;
+
+  let i = -1,
+    attrs = node.attributes,
+    attr;
+  while (++i < attrs.length) {
+    script.setAttribute((attr = attrs[i]).name, attr.value);
+  }
+  return script;
+};
+
+const replaceNodeScript = (node) => {
+  if (isNodeScript(node) === true) {
+    const clone = cloneNodeScript(node);
+    //node.parentNode.replaceChild(cloneNodeScript(node), node);
+    const nodeParent = node.parentNode;
+    nodeParent.remove(node);
+    nodeParent.add(clone);
+  } else {
+    var i = -1,
+      children = node.childNodes;
+    while (++i < children.length) {
+      replaceNodeScript(children[i]);
+    }
+  }
+  return node;
 };
