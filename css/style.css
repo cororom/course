@@ -1,7 +1,39 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap");
 @import url("home.css");
 @import url("search.css");
+@import url("referenceroom.css");
 
 * {
   font-family: "Noto Sans KR", sans-serif;
+  scroll-behavior: "smooth";
+  -webkit-scroll-behavior-duration: 0.5s;
+  -webkit-scroll-behavior-timing-function: "ease-in";
+}
+
+body {
+  max-height: 100vh;
+}
+
+img {
+  width: 100%;
+  height: 90%;
+  object-fit: cover;
+}
+
+.root {
+  max-width: 860px;
+  margin: auto;
+}
+
+.root > main:nth-of-type(1) {
+  height: calc(100vh - 165px);
+}
+
+.overflow-invisible {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.overflow-invisible::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
 }

@@ -32,8 +32,7 @@ const handleNavContent = (menu = "home") => {
       element.classList.add("active");
     }
   });
-  //navTabContent.scrollTop = 0;
-  //window.scrollTo(0, 0);
+  navTabContent.scrollTop = 0;
 };
 
 const initMenuColor = (target, list) => {

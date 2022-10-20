@@ -1,11 +1,18 @@
 (function () {
-  const searchSection = document.querySelector(".search-section");
+  const searchSection = document.querySelector(".search-main .search-section");
+  const detailSection = document.querySelector(".detail-main .search-section");
 
   if (searchSection) {
     searchSection.addEventListener("click", (event) => {
       handleSearch(event);
     });
   }
+  if (detailSection) {
+    detailSection.addEventListener("submit", (event) => {
+      handleSearch(event);
+    });
+  }
+
   const ranking = document.querySelector(".popular-ranking");
 
   const handleSearchContent = async (keyword) => {
@@ -14,13 +21,21 @@
     pathQuery.pop();
     url.pathname = pathQuery.join("/");
     const newUrl = `${url.origin}${url.pathname}/detail_search.html?keyword=${keyword}`;
-    location.href = newUrl;
+    await getPage(newUrl).then((data) => {
+      history.pushState(null, null, newUrl);
+      document.documentElement.innerHTML = data;
+    });
   };
 
   const handleSearch = (event) => {
     event.preventDefault();
-    const target = event.target;
-    const keyword = target.classList.contains("search-keyword") ? target.textContent : "";
+    const target = event.currentTarget;
+    const input = target.querySelector("input");
+    if (input !== null && input.value.trim() === "") {
+      alert("검색어를 입력해주세요.");
+      return false;
+    }
+    const keyword = input !== null ? input.value : "";
     const url = parseUrl(location.href);
     let pathQuery = url.pathname.split("/");
     pathQuery.pop();
@@ -41,7 +56,8 @@
 
   const historyInput = document.querySelector(".search-form input");
 
-  const handleHistorySection = (type) => {
+  const handleHistorySection = (event, type) => {
+    event.preventDefault();
     const historySection = document.querySelector(".search-history");
     if (type === "open") {
       if (historySection.classList.contains("d-none")) {
@@ -55,8 +71,8 @@
   };
 
   if (historyInput) {
-    historyInput.addEventListener("click", () => {
-      handleHistorySection("open");
+    historyInput.addEventListener("click", (event) => {
+      handleHistorySection(event, "open");
     });
   }
 
@@ -81,8 +97,8 @@
   const historyClose = document.querySelector(".history-header .history-close");
 
   if (historyClose) {
-    historyClose.addEventListener("click", () => {
-      handleHistorySection("close");
+    historyClose.addEventListener("click", (event) => {
+      handleHistorySection(event, "close");
     });
   }
 
@@ -120,11 +136,11 @@
     pathQuery.pop();
     url.pathname = pathQuery.join("/");
     const newUrl = `${url.origin}${url.pathname}/index.html#search`;
-    location.href = newUrl;
-    // await getPage(newUrl).then((data) => {
-    //   history.pushState(null, null, newUrl);
-    //   document.documentElement.innerHTML = data;
-    // });
+    //location.href = newUrl;
+    await getPage(newUrl).then((data) => {
+      history.pushState(null, null, newUrl);
+      document.documentElement.innerHTML = data;
+    });
   };
 
   if (detailClose) {

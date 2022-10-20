@@ -15,227 +15,385 @@
   </head>
   <body>
     <div class="container root">
-      <div class="detail-main">
-        <header>
+      <header class="sticky-top bg-white main-header d-none">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-bottom">
+          <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+              <path
+                fill-rule="evenodd"
+                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+              />
+            </svg>
+          </a>
+          <div class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="d-block my-1" viewBox="0 0 118 94" role="img">
+              <title>Bootstrap</title>
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"
+                fill="currentColor"
+              ></path>
+            </svg>
+          </div>
+          <div class="col-md-3 text-end">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-tv-fill" viewBox="0 0 16 16">
+              <path d="M2.5 13.5A.5.5 0 0 1 3 13h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zM2 2h12s2 0 2 2v6s0 2-2 2H2s-2 0-2-2V4s0-2 2-2z" />
+            </svg>
+          </div>
+        </div>
+        <ul class="nav nav-tabs nav-pills nav-justified text-center text-small py-3" id="nav-tab" role="tablist">
+          <li class="col nav-item" role="presentation">
+            <a href="#home" class="nav-link text-dark" id="home-tab" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-house d-block mx-auto mb-1"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"
+                />
+                <path
+                  fill-rule="evenodd"
+                  d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"
+                />
+              </svg>
+              홈
+            </a>
+          </li>
+          <li class="col nav-item" role="presentation">
+            <a
+              href="#search"
+              class="nav-link text-secondary"
+              id="search-tab"
+              data-toggle="tab"
+              role="tab"
+              aria-controls="search"
+              aria-selected="false"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-search d-block mx-auto mb-1"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                />
+              </svg>
+              검색
+            </a>
+          </li>
+          <li class="col nav-item" role="presentation">
+            <a
+              href="#referenceroom"
+              class="nav-link text-secondary"
+              id="referenceroom-tab"
+              data-toggle="tab"
+              role="tab"
+              aria-controls="referenceroom"
+              aria-selected="false"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-book d-block mx-auto mb-1"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"
+                />
+              </svg>
+              자료실
+            </a>
+          </li>
+          <li class="col nav-item" role="presentation">
+            <a
+              href="#mysaved"
+              class="nav-link text-secondary"
+              id="mysaved-tab"
+              data-toggle="tab"
+              role="tab"
+              aria-controls="mysaved"
+              aria-selected="false"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-bookshelf d-block mx-auto mb-1"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M2.5 0a.5.5 0 0 1 .5.5V2h10V.5a.5.5 0 0 1 1 0v15a.5.5 0 0 1-1 0V15H3v.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5zM3 14h10v-3H3v3zm0-4h10V7H3v3zm0-4h10V3H3v3z"
+                />
+              </svg>
+              내 책장
+            </a>
+          </li>
+          <li class="col nav-item" role="presentation">
+            <a
+              href="#lecture"
+              class="nav-link text-secondary"
+              id="lecture-tab"
+              data-toggle="tab"
+              role="tab"
+              aria-controls="lecture"
+              aria-selected="false"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-mortarboard d-block mx-auto mb-1"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5ZM8 8.46 1.758 5.965 8 3.052l6.242 2.913L8 8.46Z"
+                />
+                <path
+                  d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466 4.176 9.032Zm-.068 1.873.22-.748 3.496 1.311a.5.5 0 0 0 .352 0l3.496-1.311.22.748L8 12.46l-3.892-1.556Z"
+                />
+              </svg>
+              클래스
+            </a>
+          </li>
+        </ul>
+      </header>
+      <main class="detail-main">
+        <header class="sticky-top bg-white">
           <div class="detail-header d-flex justify-content-evenly align-items-center px-3">
             <div class="col-md-4"></div>
             <div class="col-md-4 text-center detail-subject">검색</div>
             <div class="col-md-4 text-end detail-close">닫기</div>
           </div>
           <div class="border-bottom"></div>
+          <article class="search-top">
+            <div class="search-section">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path
+                  d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                />
+              </svg>
+              <form class="search-form w-100" name="search-form" action="" method="post">
+                <input class="text-secondary w-100 border-0" name="keyword" value="" placeholder="검색어를 입력해주세요" />
+              </form>
+            </div>
+            <div class="search-history d-none">
+              <div class="history-list history-header">
+                <div class="history-subject">최근 검색어</div>
+                <div class="history-action">
+                  <div class="history-delete-all">전체삭제</div>
+                  <div class="history-close">닫기</div>
+                </div>
+              </div>
+              <div class="history-list history-body">
+                <div class="history-name">지구본연구소</div>
+                <div class="history-action">
+                  <div>2022. 10. 13</div>
+                  <div class="history-delete">X</div>
+                </div>
+              </div>
+              <div class="history-list history-body">
+                <div class="history-name">오건영</div>
+                <div class="history-action">
+                  <div>2022. 10. 13</div>
+                  <div class="history-delete">X</div>
+                </div>
+              </div>
+            </div>
+          </article>
         </header>
-        <article class="search-top">
-          <div class="search-section">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-              <path
-                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
-              />
-            </svg>
-            <form class="search-form w-100" name="search-form" action="" method="post">
-              <input class="text-secondary w-100 border-0" name="keyword" value="" placeholder="검색어를 입력해주세요" />
-            </form>
-          </div>
-          <div class="search-history d-none">
-            <div class="history-list history-header">
-              <div class="history-subject">최근 검색어</div>
-              <div class="history-action">
-                <div class="history-delete-all">전체삭제</div>
-                <div class="history-close">닫기</div>
+        <article class="search-content overflow-auto">
+          <article class="search-response">
+            <div class="response-subject">
+              <span class="response-name">검색결과</span>
+              <div class="response-total">총 <span class="total-count">0</span>건</div>
+            </div>
+            <div class="search-video">
+              <h5>영상(<span class="search-video-count">0</span>)</h5>
+              <div class="container my-3 custom-slide">
+                <div class="row my-auto flex-nowrap overflow-auto overflow-invisible">
+                  <div class="col-md-3">
+                    <section class="video-col">
+                      <div class="video-thumb">
+                        <img src="https://i.ytimg.com/vi/-Jf5haShbCc/hqdefault.jpg" class="rounded" alt="" />
+                      </div>
+                      <div class="video-meta mt-2">
+                        <span class="video-subject">[심층인터뷰] 다시 시작된 거리두기에 유통과 음식료 영향은? f. 키움증권 박상준 연구위원</span>
+                      </div>
+                    </section>
+                  </div>
+                  <div class="col-md-3">
+                    <section class="video-col">
+                      <div class="video-thumb">
+                        <img src="https://i.ytimg.com/vi/7ZNWUfuAzE4/hqdefault.jpg" class="rounded" alt="" />
+                      </div>
+                      <div class="video-meta mt-2">
+                        <span class="video-subject">테스트</span>
+                      </div>
+                    </section>
+                  </div>
+                  <div class="col-md-3">
+                    <section class="video-col">
+                      <div class="video-thumb">
+                        <img src="https://i.ytimg.com/vi/rAMuX9m_7Lw/hqdefault.jpg" class="rounded" alt="" />
+                      </div>
+                      <div class="video-meta mt-2">
+                        <span class="video-subject">테스트</span>
+                      </div>
+                    </section>
+                  </div>
+                  <div class="col-md-3">
+                    <section class="video-col">
+                      <div class="video-thumb">
+                        <img src="https://i.ytimg.com/vi/_EM3IUfigls/hqdefault.jpg" class="rounded" alt="" />
+                      </div>
+                      <div class="video-meta mt-2">
+                        <span class="video-subject">테스트</span>
+                      </div>
+                    </section>
+                  </div>
+                  <div class="col-md-3">
+                    <section class="video-col">
+                      <div class="video-thumb">
+                        <img src="https://i.ytimg.com/vi/386ReNL74Ig/hqdefault.jpg" class="rounded" alt="" />
+                      </div>
+                      <div class="video-meta mt-2">
+                        <span class="video-subject">테스트</span>
+                      </div>
+                    </section>
+                  </div>
+                  <div class="col-md-3">
+                    <section class="video-col">
+                      <div class="video-thumb">
+                        <img src="https://i.ytimg.com/vi/wavtqmQV4e8/hqdefault.jpg" class="rounded" alt="" />
+                      </div>
+                      <div class="video-meta mt-2">
+                        <span class="video-subject">테스트</span>
+                      </div>
+                    </section>
+                  </div>
+                  <div class="carousel-control-prev bg-transparent w-aut custom-control-prev" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  </div>
+                  <div class="carousel-control-next bg-transparent w-aut custom-control-next" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="history-list history-body">
-              <div class="history-name">지구본연구소</div>
-              <div class="history-action">
-                <div>2022. 10. 13</div>
-                <div class="history-delete">X</div>
+            <div class="search-data">
+              <h5>자료실(<span class="search-data-count">0</span>)</h5>
+              <div class="container my-3 custom-slide">
+                <div class="row my-auto flex-nowrap overflow-auto overflow-invisible">
+                  <div class="col-md-2-custom">
+                    <section class="video-col">
+                      <div class="video-thumb">
+                        <img
+                          src="https://d1kxvxsz0nulrt.cloudfront.net/resource/episode/file/aeb459fa-f086-48e5-8622-86ee267ed1a4.jpg"
+                          class="rounded"
+                          alt=""
+                        />
+                      </div>
+                      <div class="video-meta mt-2">
+                        <span class="video-subject">[심층인터뷰] 다시 시작된 거리두기에 유통과 음식료 영향은? f. 키움증권 박상준 연구위원</span>
+                      </div>
+                    </section>
+                  </div>
+                  <div class="col-md-2-custom">
+                    <section class="video-col">
+                      <div class="video-thumb">
+                        <img
+                          src="https://d1kxvxsz0nulrt.cloudfront.net/resource/episode/file/f4b5291f-768e-4dff-8acc-fc4741a78bb9.jpg"
+                          class="rounded"
+                          alt=""
+                        />
+                      </div>
+                      <div class="video-meta mt-2">
+                        <span class="video-subject">테스트</span>
+                      </div>
+                    </section>
+                  </div>
+                  <div class="col-md-2-custom">
+                    <section class="video-col">
+                      <div class="video-thumb">
+                        <img
+                          src="https://d1kxvxsz0nulrt.cloudfront.net/resource/episode/file/208e5757-36fe-48c4-a7e4-a0b65ecb7318.jpg"
+                          class="rounded"
+                          alt=""
+                        />
+                      </div>
+                      <div class="video-meta mt-2">
+                        <span class="video-subject">테스트</span>
+                      </div>
+                    </section>
+                  </div>
+                  <div class="col-md-2-custom">
+                    <section class="video-col">
+                      <div class="video-thumb">
+                        <img
+                          src="https://d1kxvxsz0nulrt.cloudfront.net/resource/episode/file/f11353ea-a323-4769-9e77-c74fb8675d11.jpg"
+                          class="rounded"
+                          alt=""
+                        />
+                      </div>
+                      <div class="video-meta mt-2">
+                        <span class="video-subject">테스트</span>
+                      </div>
+                    </section>
+                  </div>
+                  <div class="col-md-2-custom">
+                    <section class="video-col">
+                      <div class="video-thumb">
+                        <img
+                          src="https://d1kxvxsz0nulrt.cloudfront.net/resource/episode/file/88796585-282d-4d6d-96e9-7e3faf750e68.png"
+                          class="rounded"
+                          alt=""
+                        />
+                      </div>
+                      <div class="video-meta mt-2">
+                        <span class="video-subject">테스트</span>
+                      </div>
+                    </section>
+                  </div>
+                  <div class="col-md-2-custom">
+                    <section class="video-col">
+                      <div class="video-thumb">
+                        <img
+                          src="https://d1kxvxsz0nulrt.cloudfront.net/resource/episode/file/1898fb64-f151-4f0e-8c5a-ff35bf17b639.jpg"
+                          class="rounded"
+                          alt=""
+                        />
+                      </div>
+                      <div class="video-meta mt-2">
+                        <span class="video-subject">테스트</span>
+                      </div>
+                    </section>
+                  </div>
+                  <div class="carousel-control-prev bg-transparent w-aut custom-control-prev" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  </div>
+                  <div class="carousel-control-next bg-transparent w-aut custom-control-next" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="history-list history-body">
-              <div class="history-name">오건영</div>
-              <div class="history-action">
-                <div>2022. 10. 13</div>
-                <div class="history-delete">X</div>
-              </div>
-            </div>
-          </div>
+          </article>
         </article>
-        <article class="search-response">
-          <div class="response-subject">
-            <span class="response-name">검색결과</span>
-            <div class="response-total">총 <span class="total-count">0</span>건</div>
-          </div>
-          <div class="search-video">
-            <h5>영상(<span class="search-video-count">0</span>)</h5>
-            <div class="container my-3 custom-slide">
-              <div class="row my-auto flex-nowrap overflow-auto">
-                <div class="col-md-3">
-                  <section class="video-col">
-                    <div class="video-thumb">
-                      <img src="https://i.ytimg.com/vi/-Jf5haShbCc/hqdefault.jpg" class="rounded" alt="" />
-                    </div>
-                    <div class="video-meta mt-2">
-                      <span class="video-subject">[심층인터뷰] 다시 시작된 거리두기에 유통과 음식료 영향은? f. 키움증권 박상준 연구위원</span>
-                    </div>
-                  </section>
-                </div>
-                <div class="col-md-3">
-                  <section class="video-col">
-                    <div class="video-thumb">
-                      <img src="https://i.ytimg.com/vi/7ZNWUfuAzE4/hqdefault.jpg" class="rounded" alt="" />
-                    </div>
-                    <div class="video-meta mt-2">
-                      <span class="video-subject">테스트</span>
-                    </div>
-                  </section>
-                </div>
-                <div class="col-md-3">
-                  <section class="video-col">
-                    <div class="video-thumb">
-                      <img src="https://i.ytimg.com/vi/rAMuX9m_7Lw/hqdefault.jpg" class="rounded" alt="" />
-                    </div>
-                    <div class="video-meta mt-2">
-                      <span class="video-subject">테스트</span>
-                    </div>
-                  </section>
-                </div>
-                <div class="col-md-3">
-                  <section class="video-col">
-                    <div class="video-thumb">
-                      <img src="https://i.ytimg.com/vi/_EM3IUfigls/hqdefault.jpg" class="rounded" alt="" />
-                    </div>
-                    <div class="video-meta mt-2">
-                      <span class="video-subject">테스트</span>
-                    </div>
-                  </section>
-                </div>
-                <div class="col-md-3">
-                  <section class="video-col">
-                    <div class="video-thumb">
-                      <img src="https://i.ytimg.com/vi/386ReNL74Ig/hqdefault.jpg" class="rounded" alt="" />
-                    </div>
-                    <div class="video-meta mt-2">
-                      <span class="video-subject">테스트</span>
-                    </div>
-                  </section>
-                </div>
-                <div class="col-md-3">
-                  <section class="video-col">
-                    <div class="video-thumb">
-                      <img src="https://i.ytimg.com/vi/wavtqmQV4e8/hqdefault.jpg" class="rounded" alt="" />
-                    </div>
-                    <div class="video-meta mt-2">
-                      <span class="video-subject">테스트</span>
-                    </div>
-                  </section>
-                </div>
-                <div class="carousel-control-prev bg-transparent w-aut custom-control-prev" role="button" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                </div>
-                <div class="carousel-control-next bg-transparent w-aut custom-control-next" role="button" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="search-data">
-            <h5>자료실(<span class="search-data-count">0</span>)</h5>
-            <div class="container my-3 custom-slide">
-              <div class="row my-auto flex-nowrap overflow-auto">
-                <div class="col-md-2-custom">
-                  <section class="video-col">
-                    <div class="video-thumb">
-                      <img
-                        src="https://d1kxvxsz0nulrt.cloudfront.net/resource/episode/file/aeb459fa-f086-48e5-8622-86ee267ed1a4.jpg"
-                        class="rounded"
-                        alt=""
-                      />
-                    </div>
-                    <div class="video-meta mt-2">
-                      <span class="video-subject">[심층인터뷰] 다시 시작된 거리두기에 유통과 음식료 영향은? f. 키움증권 박상준 연구위원</span>
-                    </div>
-                  </section>
-                </div>
-                <div class="col-md-2-custom">
-                  <section class="video-col">
-                    <div class="video-thumb">
-                      <img
-                        src="https://d1kxvxsz0nulrt.cloudfront.net/resource/episode/file/f4b5291f-768e-4dff-8acc-fc4741a78bb9.jpg"
-                        class="rounded"
-                        alt=""
-                      />
-                    </div>
-                    <div class="video-meta mt-2">
-                      <span class="video-subject">테스트</span>
-                    </div>
-                  </section>
-                </div>
-                <div class="col-md-2-custom">
-                  <section class="video-col">
-                    <div class="video-thumb">
-                      <img
-                        src="https://d1kxvxsz0nulrt.cloudfront.net/resource/episode/file/208e5757-36fe-48c4-a7e4-a0b65ecb7318.jpg"
-                        class="rounded"
-                        alt=""
-                      />
-                    </div>
-                    <div class="video-meta mt-2">
-                      <span class="video-subject">테스트</span>
-                    </div>
-                  </section>
-                </div>
-                <div class="col-md-2-custom">
-                  <section class="video-col">
-                    <div class="video-thumb">
-                      <img
-                        src="https://d1kxvxsz0nulrt.cloudfront.net/resource/episode/file/f11353ea-a323-4769-9e77-c74fb8675d11.jpg"
-                        class="rounded"
-                        alt=""
-                      />
-                    </div>
-                    <div class="video-meta mt-2">
-                      <span class="video-subject">테스트</span>
-                    </div>
-                  </section>
-                </div>
-                <div class="col-md-2-custom">
-                  <section class="video-col">
-                    <div class="video-thumb">
-                      <img
-                        src="https://d1kxvxsz0nulrt.cloudfront.net/resource/episode/file/88796585-282d-4d6d-96e9-7e3faf750e68.png"
-                        class="rounded"
-                        alt=""
-                      />
-                    </div>
-                    <div class="video-meta mt-2">
-                      <span class="video-subject">테스트</span>
-                    </div>
-                  </section>
-                </div>
-                <div class="col-md-2-custom">
-                  <section class="video-col">
-                    <div class="video-thumb">
-                      <img
-                        src="https://d1kxvxsz0nulrt.cloudfront.net/resource/episode/file/1898fb64-f151-4f0e-8c5a-ff35bf17b639.jpg"
-                        class="rounded"
-                        alt=""
-                      />
-                    </div>
-                    <div class="video-meta mt-2">
-                      <span class="video-subject">테스트</span>
-                    </div>
-                  </section>
-                </div>
-                <div class="carousel-control-prev bg-transparent w-aut custom-control-prev" role="button" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                </div>
-                <div class="carousel-control-next bg-transparent w-aut custom-control-next" role="button" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-      </div>
+      </main>
     </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
