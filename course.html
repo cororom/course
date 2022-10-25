@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container root">
+      <header class="sticky-top bg-white main-header course-header border-bottom">
+        <div class="course-back">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+            <path
+              fill-rule="evenodd"
+              d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
+            />
+          </svg>
+        </div>
+        <div class="course-subject">강의소개</div>
+        <div></div>
+      </header>
+      <main class="course-main overflow-auto" data-bs-spy="scroll" data-bs-target="#course-menu" data-bs-smooth-scroll="true" tabindex="0">
+        <div class="course-main-img">
+          <img src="https://d1kxvxsz0nulrt.cloudfront.net/resource/product/image/593895f0-5108-4fec-9a85-514509e7b858.jpg" alt="" />
+        </div>
+        <nav class="course-menu" id="course-menu">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#introduce">강의소개</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#curriculum">커리큘럼</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#inquiry">문의하기</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="course-detail">
+          <div id="introduce">
+            <img src="https://d1kxvxsz0nulrt.cloudfront.net/resource/product/image/eaebb672-394a-4c9f-b4ea-c2b551016914.jpg" alt="" />
+          </div>
+          <div id="curriculum">
+            <img src="https://d1kxvxsz0nulrt.cloudfront.net/resource/product/image/f35185c9-d324-4716-a5c7-40b45768994b.jpg" alt="" />
+          </div>
+          <div id="inquiry">
+            <img src="https://d1kxvxsz0nulrt.cloudfront.net/resource/product/image/c50b0a62-ea48-4371-9902-4e84ed85d562.jpg" alt="" />
+          </div>
+        </div>
+        <div style="margin-top: 10px"></div>
+      </main>
+      <footer class="course-footer">
+        <div class="course-sampling bg-primary">맛보기</div>
+        <div class="course-buying bg-info">구매하기</div>
+      </footer>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/common.js"></script>
+    <script src="./js/course.js"></script>
+  </body>
+</html>

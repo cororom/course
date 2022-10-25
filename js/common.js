@@ -15,6 +15,21 @@ const historyBack = () => {
 
 historyBack();
 
+const handlePageInit = () => {
+  const hash = location.hash.replace("#", "");
+
+  if (hash === "") {
+    handleNavContent("home");
+    handleNavContent("video");
+  } else {
+    handleNavContent(hash);
+    if (hash === "mysaved") {
+      handleNavContent("content-video");
+      handleNavContent("saved-course");
+    }
+  }
+};
+
 const handleNavContent = (menu = "home") => {
   let tabName = menu;
   const navTabContent = document.getElementById(tabName).closest(".tab-content");
@@ -23,7 +38,12 @@ const handleNavContent = (menu = "home") => {
     element.classList.remove("show");
     element.classList.remove("active");
   });
-  if (location.hash) {
+  const mainNav = document.querySelectorAll("#nav-tab a");
+  let menus = [];
+  mainNav.forEach((element) => {
+    menus.push(element.getAttribute("aria-controls"));
+  });
+  if (menus.includes(tabName) && location.hash) {
     tabName = location.hash.replace("#", "");
   }
   tabContentList.forEach((element) => {
@@ -73,6 +93,10 @@ const handleNavUrl = (event, list, type = null) => {
   handleNavContent(menu);
   if (menu === "home") {
     handleNavContent("video");
+  }
+  if (menu === "mysaved") {
+    handleNavContent("content-video");
+    handleNavContent("saved-course");
   }
 };
 

@@ -1,8 +1,7 @@
 (function () {
-  const tabs = document.querySelectorAll("header a[data-toggle='tab']");
+  handlePageInit();
 
-  handleNavContent("home");
-  handleNavContent("video");
+  const tabs = document.querySelectorAll("header a[data-toggle='tab']");
 
   if (tabs) {
     tabs.forEach((element) => {

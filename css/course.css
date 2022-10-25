@@ -1,0 +1,38 @@
+.course-main {
+  height: calc(100vh - 109px) !important;
+  position: relative;
+}
+
+.course-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 63px;
+}
+
+.course-header .course-subject {
+  font-size: large;
+  font-weight: 600;
+}
+
+.course-menu {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  height: 50px;
+}
+
+.course-footer {
+  height: 46px;
+  display: flex;
+  align-items: center;
+}
+
+.course-footer div {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 auto;
+}

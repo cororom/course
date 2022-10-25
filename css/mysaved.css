@@ -1,0 +1,47 @@
+#mysaved {
+  padding: 0 16px;
+  position: relative;
+}
+
+.mysaved-main .search-header {
+  padding: 10px 0;
+}
+
+.content-section .content-subject {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content-subject .content-name {
+  font-size: large;
+  font-weight: 600;
+}
+
+.content-subject .content-type {
+  display: flex;
+  cursor: pointer;
+}
+
+.saved-subject {
+  font-size: large;
+  font-weight: 600;
+  display: block;
+  margin: 10px 0;
+}
+
+.saved-menu {
+  font-size: large;
+  font-weight: 600;
+}
+
+.saved-empty {
+  display: flex;
+  flex-direction: column;
+  flex-basis: auto;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  text-align: center;
+}
