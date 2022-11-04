@@ -1,0 +1,126 @@
+.comment-section {
+  padding: 0 16px;
+}
+
+.comment-section input {
+  padding: 0 10px;
+}
+
+.comment-input {
+  border: 1px solid;
+  border-radius: 18px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  cursor: pointer;
+}
+
+.comment-add {
+  width: 32px;
+  font-size: 14px;
+}
+
+.comment-list {
+  padding: 16px 0;
+}
+
+.comment-list .comment-profile {
+  margin-right: 10px;
+}
+
+.comment-list .comment-profile img {
+  width: 30px;
+  height: 30px;
+}
+
+.comment-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-info .comment-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment-info .comment-text {
+  margin-top: 3px;
+  font-size: 14px;
+}
+
+.comment-info .comment-time {
+  font-size: 12px;
+  color: rgba(108, 117, 125, 1) !important;
+}
+
+.comment-action {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 15%;
+  cursor: pointer;
+}
+
+.comment-action .comment-reply-btn {
+  font-size: 14px;
+}
+
+.comment-flex .comment-nickname {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.comment-reply-hidden {
+  display: flex;
+  align-items: center;
+  padding: 4px 0;
+}
+
+.comment-reply-hidden input {
+  margin-right: 20px;
+  width: 85%;
+}
+
+.comment-reply-hidden .comment-reply-submit {
+  width: 15%;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.comment-etc-menu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.comment-etc-menu div {
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+}
+
+.comment-etc-menu .comment-report {
+  margin: 20px 10px 10px 10px;
+}
+
+.comment-etc-menu .comment-block {
+  margin: 10px 10px 20px 10px;
+}
+
+.comment-etc-menu .comment-close {
+  padding: 20px 0 30px;
+}

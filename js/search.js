@@ -1,6 +1,6 @@
 (function () {
   const searchSection = document.querySelector(".search-main .search-section");
-  const detailSection = document.querySelector(".detail-main .search-section");
+  const detailSection = document.querySelector(".detail-main .detail-search-section");
 
   if (searchSection) {
     searchSection.addEventListener("click", (event) => {
@@ -15,34 +15,25 @@
 
   const ranking = document.querySelector(".popular-ranking");
 
-  const handleSearchContent = async (keyword) => {
-    const url = parseUrl(location.href);
-    let pathQuery = url.pathname.split("/");
-    pathQuery.pop();
-    url.pathname = pathQuery.join("/");
-    const newUrl = `${url.origin}${url.pathname}/detail_search.html?keyword=${keyword}`;
-    await getPage(newUrl).then((data) => {
-      history.pushState(null, null, newUrl);
-      document.documentElement.innerHTML = data;
-    });
-  };
-
   const handleSearch = (event) => {
     event.preventDefault();
-    const target = event.currentTarget;
-    const input = target.querySelector("input");
-    if (input !== null && input.value.trim() === "") {
-      alert("검색어를 입력해주세요.");
-      return false;
-    }
-    const keyword = input !== null ? input.value : "";
     const url = parseUrl(location.href);
     let pathQuery = url.pathname.split("/");
     pathQuery.pop();
     url.pathname = pathQuery.join("/");
-    const newUrl = `${url.origin}${url.pathname}/detail_search.html?keyword=${keyword}`;
-    history.pushState(null, null, newUrl);
-    handleSearchContent(keyword);
+    const target = event.currentTarget;
+    let newUrl = "";
+    if (target.classList.contains("search-section")) {
+      newUrl = `${url.origin}${url.pathname}/detail_search.html?keyword=`;
+    } else {
+      const keyword = target.classList.contains("popular-word") ? target.textContent : target.querySelector("input").value;
+      if (keyword.trim() === "") {
+        alert("검색어를 입력해주세요.");
+        return false;
+      }
+      newUrl = `${url.origin}${url.pathname}/detail_search.html?keyword=${keyword}`;
+    }
+    location.href = newUrl;
   };
 
   if (ranking) {
@@ -84,8 +75,7 @@
     const keyword = target.querySelector(".history-name").textContent;
     const url = parseUrl(location.href);
     const newUrl = `${url.origin}${url.pathname}?keyword=${keyword}`;
-    history.pushState(null, null, newUrl);
-    handleSearchContent(keyword);
+    location.href = newUrl;
   };
 
   if (historyList.length > 0) {
@@ -136,11 +126,7 @@
     pathQuery.pop();
     url.pathname = pathQuery.join("/");
     const newUrl = `${url.origin}${url.pathname}/index.html#search`;
-    //location.href = newUrl;
-    await getPage(newUrl).then((data) => {
-      history.pushState(null, null, newUrl);
-      document.documentElement.innerHTML = data;
-    });
+    location.href = newUrl;
   };
 
   if (detailClose) {

@@ -5,6 +5,8 @@
 @import url("lecture.css");
 @import url("mysaved.css");
 @import url("course.css");
+@import url("question.css");
+@import url("comment.css");
 
 * {
   font-family: "Noto Sans KR", sans-serif;

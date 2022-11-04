@@ -15,36 +15,54 @@ const historyBack = () => {
 
 historyBack();
 
-const handlePageInit = () => {
-  const hash = location.hash.replace("#", "");
+const handlePageInit = (page = "") => {
+  if (page === "") {
+    const hash = location.hash.replace("#", "");
 
-  if (hash === "") {
-    handleNavContent("home");
-    handleNavContent("video");
-  } else {
-    handleNavContent(hash);
-    if (hash === "mysaved") {
-      handleNavContent("content-video");
-      handleNavContent("saved-course");
+    if (hash === "") {
+      const url = parseUrl(location.href);
+      const file = url.pathname.split("/").pop();
+      if (file === "detail_reference.html") {
+        handleNavContent("related-episode");
+      } else {
+        handleNavContent("home");
+        handleNavContent("video");
+        handleNavContent("content-video");
+        handleNavContent("saved-course");
+      }
+    } else {
+      handleNavContent(hash);
+      if (hash === "mysaved") {
+        handleNavContent("content-video");
+        handleNavContent("saved-course");
+      }
     }
+  } else {
+    handleNavContent(page);
   }
 };
 
 const handleNavContent = (menu = "home") => {
   let tabName = menu;
-  const navTabContent = document.getElementById(tabName).closest(".tab-content");
+  const target = document.getElementById(tabName);
+  if (!target) {
+    return false;
+  }
+  const navTabContent = target.closest(".tab-content");
   const tabContentList = navTabContent.querySelectorAll(".tab-pane");
   tabContentList.forEach((element) => {
     element.classList.remove("show");
     element.classList.remove("active");
   });
   const mainNav = document.querySelectorAll("#nav-tab a");
-  let menus = [];
-  mainNav.forEach((element) => {
-    menus.push(element.getAttribute("aria-controls"));
-  });
-  if (menus.includes(tabName) && location.hash) {
-    tabName = location.hash.replace("#", "");
+  if (mainNav) {
+    let menus = [];
+    mainNav.forEach((element) => {
+      menus.push(element.getAttribute("aria-controls"));
+    });
+    if (menus.includes(tabName) && location.hash) {
+      tabName = location.hash.replace("#", "");
+    }
   }
   tabContentList.forEach((element) => {
     if (element.id === tabName) {
@@ -58,14 +76,16 @@ const handleNavContent = (menu = "home") => {
 const initMenuColor = (target, list) => {
   list.forEach((element) => {
     if (target === element) {
-      if (target.classList.contains("text-secondary")) {
-        target.classList.remove("text-secondary");
-        target.classList.add("text-dark");
+      if (element.classList.contains("text-secondary")) {
+        element.classList.remove("text-secondary");
+        element.classList.add("text-dark");
+        element.setAttribute("aria-selected", true);
       }
     } else {
       if (!element.classList.contains("text-secondary")) {
         element.classList.remove("text-dark");
         element.classList.add("text-secondary");
+        element.setAttribute("aria-selected", false);
       }
     }
   });
@@ -75,29 +95,23 @@ const handleNavUrl = (event, list, type = null) => {
   event.preventDefault();
   const target = event.currentTarget;
   const prevUrl = getUrl();
-  let url = prevUrl.replace(location.search, "");
+  //let url = prevUrl.replace(location.search, "");
+  let url = prevUrl;
   let newUrl;
-  const menu = target.getAttribute("aria-controls");
   if (type === "change") {
     const hash = target.hash;
-    if (hash == "#home") {
-      newUrl = url.split("#")[0];
-    } else {
-      newUrl = url.split("#")[0] + hash;
+    newUrl = hash === "#home" ? url.split("#")[0] : url.split("#")[0] + hash;
+    location.href = newUrl;
+    if (hash !== "#home") {
+      handlePageInit();
     }
   } else {
+    const menu = target.getAttribute("aria-controls");
     newUrl = url;
+    history.pushState(null, null, newUrl);
+    handlePageInit(menu);
   }
-  history.pushState(null, null, newUrl);
   initMenuColor(target, list);
-  handleNavContent(menu);
-  if (menu === "home") {
-    handleNavContent("video");
-  }
-  if (menu === "mysaved") {
-    handleNavContent("content-video");
-    handleNavContent("saved-course");
-  }
 };
 
 const postData = async (url = "", data = {}) => {
@@ -116,53 +130,4 @@ const postData = async (url = "", data = {}) => {
     body: JSON.stringify(data), // body의 데이터 유형은 반드시 "Content-Type" 헤더와 일치해야 함
   });
   return response.json(); // JSON 응답을 네이티브 JavaScript 객체로 파싱
-};
-
-const getPage = async (url = "") => {
-  const response = await fetch(url, {
-    method: "GET",
-    mode: "no-cors",
-    cache: "no-cache",
-    credentials: "same-origin",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    redirect: "follow",
-    referrerPolicy: "no-referrer",
-  });
-  return response.text();
-};
-
-const isNodeScript = (node) => {
-  return node.tagName === "SCRIPT";
-};
-
-const cloneNodeScript = (node) => {
-  const script = document.createElement("script");
-  script.text = node.innerHTML;
-
-  let i = -1,
-    attrs = node.attributes,
-    attr;
-  while (++i < attrs.length) {
-    script.setAttribute((attr = attrs[i]).name, attr.value);
-  }
-  return script;
-};
-
-const replaceNodeScript = (node) => {
-  if (isNodeScript(node) === true) {
-    const clone = cloneNodeScript(node);
-    //node.parentNode.replaceChild(cloneNodeScript(node), node);
-    const nodeParent = node.parentNode;
-    nodeParent.remove(node);
-    nodeParent.add(clone);
-  } else {
-    var i = -1,
-      children = node.childNodes;
-    while (++i < children.length) {
-      replaceNodeScript(children[i]);
-    }
-  }
-  return node;
 };

@@ -22,10 +22,16 @@
   height: 50px;
 }
 
+.course-menu .nav-link {
+  font-weight: 600;
+  color: black;
+}
+
 .course-footer {
   height: 46px;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .course-footer div {
@@ -35,4 +41,18 @@
   justify-content: center;
   align-items: center;
   padding: 0 auto;
+  color: white;
+}
+
+.course-detail .course-inquiry {
+  margin-top: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.course-inquiry button {
+  margin: 20px 0;
+  width: 40%;
+  color: white;
 }

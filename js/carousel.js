@@ -16,8 +16,10 @@
     if (direction === "left") {
       content.scrollLeft -= 500;
     } else {
+      console.log(content.scrollLeft);
       content.scrollLeft += 500;
     }
+    console.log(direction, content, content.scrollLeft);
   };
 
   if (slideLeftBtn.length > 0) {

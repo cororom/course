@@ -1,0 +1,60 @@
+.question-header .nav {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 48px;
+}
+
+.question-header .question-subject {
+  font-size: large;
+  font-weight: 600;
+}
+
+.question-header .question-back {
+  cursor: pointer;
+}
+
+.question-main {
+  height: 100% !important;
+}
+
+.question-main > div {
+  position: relative;
+  height: calc(100vh - 108px) !important;
+}
+
+.question-content {
+  padding: 16px;
+  width: 100%;
+  height: calc(100% - 66px);
+  margin-bottom: 20px;
+}
+
+.question-content .question-subject {
+  margin-top: 10px;
+}
+
+.question-content .question-title {
+  margin: 20px 0 10px 0;
+}
+
+.question-footer {
+  height: 46px;
+  position: fixed;
+  z-index: 1020;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.question-footer div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 auto;
+  color: white;
+  font-weight: 600;
+  font-size: large;
+}

@@ -8,7 +8,8 @@
   padding: 10px 0;
 }
 
-.search-section {
+.search-section,
+.detail-search-section {
   border: 1px solid;
   border-radius: 18px;
   height: 40px;
@@ -40,15 +41,6 @@
   padding-left: 1.2rem;
   font-size: 15px;
   cursor: pointer;
-}
-
-.search-detail {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1000;
 }
 
 .search-form {
